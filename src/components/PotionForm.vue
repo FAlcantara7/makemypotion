@@ -1,7 +1,7 @@
 <template>
-    <p>Componente de Mensagem</p>
+    <MensagE :msg="msg" v-show="msg" />
     <div>
-        <form id="potion-form">
+        <form id="potion-form" @submit="createPotion">
             <div class="input-container">
                 <label for="nome">Nome do Cliente</label>
                 <input type="text" id="nome" name="name" v-model="nome" placeholder="Digite o seu nome:">
@@ -29,7 +29,7 @@
 
             <div id="opcionais-container" class="input-container">
                 <label id="opcionais-title" for="opcionais">Efeitos Opcionais</label>
-                <div class="checkbox-container" v-for="opcional in opcionaisData" :key="opcional.tipo">
+                <div class="checkbox-container" v-for="opcional in opcionaisData" :key="opcional.id">
                     <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo">
                     <span>{{opcional.tipo}}</span>
                 </div>
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import MensagE from './Mensage.vue';
+
 export default {
     name: 'PotionForm',
     data(){
@@ -68,7 +70,42 @@ export default {
             this.efeitos = data.efeitos;
             this.opcionaisData = data.opcionais;
 
+        },
+        async createPotion(e){
+            e.preventDefault();
+
+            const data = {
+                nome: this.nome,
+                qualidade: this.qualidade,
+                efeito: this.efeito,
+                opcionais: Array.from(this.opcionais),
+                status: "Solicitado"
+            }
+
+            const dataJson = JSON.stringify(data);
+
+            const req = await fetch("http://localhost:3000/potioners", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: dataJson
+            });
+
+            const res = await req.json();
+            // Mensagem no sistema
+            this.msg= `Pedido de codigo ${res.id} realizado com sucesso`;
+            // Limpa a mensagem
+            setTimeout(()=> this.msg = "", 3000);
+            // Limpa os campos
+            this.nome = "";
+            this.qualidade = "";
+            this.efeito = "";
+            this.opcionais = "";
+
+
         }
+    },
+    components:{
+        MensagE
     },
     mounted() {
         this.getIngredientes();
