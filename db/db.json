@@ -1,0 +1,94 @@
+{
+    "tipodepocao": {
+      "qualidade": [
+        {
+          "id": 1,
+          "tipo": "Potion"
+        },
+        {
+          "id": 2,
+          "tipo": "Super Potion"
+        },
+        {
+          "id": 3,
+          "tipo": "High Potion"
+        },
+        {
+          "id": 4,
+          "tipo": "Max Potion"
+        }
+      ],
+      "efeitos": [
+        {
+          "id": 1,
+          "tipo": "Cura Vida"
+        },
+        {
+          "id": 2,
+          "tipo": "Cura Envenenamento"
+        },
+        {
+          "id": 3,
+          "tipo": "Cura Paralisia"
+        },
+        {
+          "id": 4,
+          "tipo": "Cura Maldição"
+        }
+      ],
+      "opcionais": [
+        {
+          "id": 1,
+          "tipo": "+1 Vida"
+        },
+        {
+          "id": 2,
+          "tipo": "+1 Força"
+        },
+        {
+          "id": 3,
+          "tipo": "+1 Destreza"
+        },
+        {
+          "id": 4,
+          "tipo": "+1 Velocidade"
+        },
+        {
+          "id": 4,
+          "tipo": "+1 Stamina"
+        },
+        {
+          "id": 4,
+          "tipo": "+1 Sorte"
+        }
+      ]
+    },
+    "status": [
+      {
+        "id": 1,
+        "tipo": "Solicitado"
+      },
+      {
+        "id": 2,
+        "tipo": "Em produção"
+      },
+      {
+        "id": 3,
+        "tipo": "Finalizado"
+      }
+    ],
+    "potioners": [
+      {
+        "nome": "Matheus Battisti",
+        "efeitos": "Cura Vida",
+        "qualidade": "High Potion",
+        "opcionais": [
+          "+1 Vida",
+          "+1 Força",
+          "+1 Sorte"
+        ],
+        "status": "Finalizado",
+        "id": 1
+      }
+    ]
+  }
