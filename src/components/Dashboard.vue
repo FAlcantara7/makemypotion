@@ -24,9 +24,9 @@
                     </ul>
                 </div>
                 <div>
-                    <select name="status" id="status">
+                    <select name="status" id="status" @change="updatePotion($event, potion.id)">
                         <option value="">Selecione</option>
-                        <option value="stat.tipo" v-for="stat in status" :key="stat.id" :selected="potion.status == stat.tipo">{{stat.tipo}}</option>
+                        <option :value="stat.tipo" v-for="stat in status" :key="stat.id" :selected="potion.status == stat.tipo">{{stat.tipo}}</option>
                     </select>
                     <button class="delete-btn" @click="deletePotion(potion.id)">Cancelar</button>
                 </div>
@@ -72,6 +72,17 @@ export default {
             const res = await req.json();
 
             this.getPedidos();
+        },
+        async updatePotion(event, id) {
+            const option = event.target.value;
+
+            const dataJson = JSON.stringify({status: option});
+
+            const req = await fetch(`http://localhost:3000/potioners/${id}`, {
+                method: "PATCH",
+                headers: {"Content-Type": "application/json"},
+                body: dataJson
+            });
         }
     },
     mounted() {
