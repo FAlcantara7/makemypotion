@@ -14,9 +14,9 @@ export default {
 <style scoped>
     #main-banner{
         background-image: url('/public/img/potionw.jpeg');
-        background-position: 0 -250px;
+        background-position: center;
         background-size: cover;
-        height: 500px;
+        height: 50vh;
         display: flex;
         align-items: center;
         justify-content: flex-start;
