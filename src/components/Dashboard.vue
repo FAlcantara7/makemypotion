@@ -93,62 +93,73 @@ export default {
 </script>
 
 <style scoped>
-    #potion-table {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+#potion-table {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto; 
+}
 
-    #potion-table-header,
-    #potion-table-rows,
-    .potion-table-row {
-        display: flex;
-        flex-wrap: wrap;
+#potion-table-header,
+#potion-table-rows,
+.potion-table-row {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+#potion-table-header {
+    font-weight: bold;
+    padding: 12px;
+    border-bottom: 3px solid #333;
+}
+
+#potion-table-header div,
+.potion-table-row div {
+    width: 18.5%; 
+}
+
+.potion-table-row {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+#potion-table-header .order-id,
+.potion-table-row .order-number {
+    width: 7.5%;
+}
+
+select {
+    padding: 12px 6px;
+    margin-right: 9px;
+}
+
+.delete-btn {
+    background-color: #222;
+    color: #03fc66;
+    font-weight: bold;
+    border: 2px solid #222;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.delete-btn:hover {
+    background-color: transparent;
+    color: #222;
+}
+
+@media (max-width: 768px) {
+    #potion-table-header div,
+    .potion-table-row div {
+        width: 100%; 
     }
 
     #potion-table-header {
-        font-weight: bold;
-        padding: 12px;
-        border-bottom: 3px solid #333;
+        flex-wrap: wrap; 
     }
-
-    #potion-table-header div,
-    .potion-table-row div {
-        width: 18.5%;
-    }
-
-    .potion-table-row {
-        width: 100%;
-        padding: 12px;
-        border-bottom: 1px solid #ccc;
-    }
-
-    #potion-table-header .order-id,
-    .potion-table-row .order-number {
-        width: 7.5%;
-    }
-
-    select {
-        padding: 12px 6px;
-        margin-right: 9px;
-    }
-
-    .delete-btn {
-        background-color: #222;
-        color: #03fc66;
-        font-weight: bold;
-        border: 2px solid #222;
-        border-radius: 10px;
-        padding: 10px;
-        font-size: 16px;
-        margin: 0 auto;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    .delete-btn:hover {
-        background-color: transparent;
-        color: #222;
-    }
-
+}
 
 </style>
